@@ -15,7 +15,7 @@ This project uses the Elliptic Bitcoin dataset.
 
 > Note: raw data is not committed to the repo.
 
-### Quickstart
+## Quickstart
 
 ```bash
 conda create -n elliptic python=3.10 -y
