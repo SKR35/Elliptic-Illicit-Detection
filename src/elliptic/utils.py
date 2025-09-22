@@ -1,16 +1,8 @@
 import json
 import os
 from pathlib import Path
+
 import pandas as pd
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-
-
-def ensure_subdir(parent: str, child: str) -> str:
-    p = Path(parent) / child
-    p.mkdir(parents=True, exist_ok=True)
-    return str(p)
-
-
 from sklearn.metrics import (
     accuracy_score,
     confusion_matrix,
@@ -19,6 +11,12 @@ from sklearn.metrics import (
     recall_score,
     roc_auc_score,
 )
+
+
+def ensure_subdir(parent: str, child: str) -> str:
+    p = Path(parent) / child
+    p.mkdir(parents=True, exist_ok=True)
+    return str(p)
 
 
 def ensure_dir(p):

@@ -3,12 +3,10 @@ import argparse
 import joblib
 import yaml
 from sklearn.model_selection import train_test_split
-from pathlib import Path
-
 
 from .data import load_elliptic, make_xy
 from .pipeline import make_pipelines
-from .utils import ensure_dir, metrics_dict, ensure_subdir, metrics_table, save_json
+from .utils import ensure_dir, ensure_subdir, metrics_dict, metrics_table, save_json
 
 
 def main():
