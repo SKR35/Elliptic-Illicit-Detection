@@ -30,7 +30,4 @@ pip install -r requirements.txt
 python -m src.elliptic.train --config config/train.yaml
 
 # Evaluate a saved model on test set
-python -m src.elliptic.evaluate --model_path models/registry/best_pipeline.joblib
-
-# Score a new CSV of features (same schema as training X)
-python -m src.elliptic.infer --model_path models/registry/best_pipeline.joblib --input new_features.csv --output scores.csv
+python -m src.elliptic.evaluate --model_path models/registry/best_pipeline.joblib --config config/train.yaml
