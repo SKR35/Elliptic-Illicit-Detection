@@ -30,9 +30,9 @@ jobs:
           black --check .
 
       - name: Run ruff
-        run: |
-          ruff --version
-          ruff .
+      run: |
+        pip install --upgrade ruff
+        ruff check . --fix
 
       - name: Run tests
         run: |
