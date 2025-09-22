@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def load_elliptic(paths):
     feats = pd.read_csv(paths["features"], header=None)
     num_features = feats.shape[1] - 2
@@ -8,6 +9,7 @@ def load_elliptic(paths):
     labels = labels[labels["class"] != "unknown"].copy()
     df = feats.merge(labels, on="txId", how="inner")
     return df
+
 
 def make_xy(df, drops):
     X = df.drop(columns=drops).copy()

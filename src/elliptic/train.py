@@ -4,6 +4,7 @@ from .data import load_elliptic, make_xy
 from .pipeline import make_pipelines
 from .utils import ensure_dir, metrics_dict, metrics_table, save_json
 
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", required=True)
@@ -11,7 +12,9 @@ def main():
 
     cfg = yaml.safe_load(open(args.config))
     paths = cfg["paths"]
-    ensure_dir(paths["registry_dir"]); ensure_dir(paths["artifacts_dir"]); ensure_dir(paths["reports_dir"])
+    ensure_dir(paths["registry_dir"])
+    ensure_dir(paths["artifacts_dir"])
+    ensure_dir(paths["reports_dir"])
 
     df = load_elliptic(paths)
     X, y = make_xy(df, cfg["features"]["drop"])
@@ -47,6 +50,7 @@ def main():
     print("\n=== Results ===")
     print(table.to_string(index=False))
     print(f"\nSaved best model: {best_name} -> {best_path}")
+
 
 if __name__ == "__main__":
     main()
