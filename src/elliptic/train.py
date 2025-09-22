@@ -3,11 +3,12 @@ import argparse
 import joblib
 import yaml
 from sklearn.model_selection import train_test_split
+from pathlib import Path
+
 
 from .data import load_elliptic, make_xy
 from .pipeline import make_pipelines
-from .utils import ensure_dir, metrics_dict, metrics_table, save_json
-
+from .utils import ensure_dir, metrics_dict, ensure_subdir, metrics_table, save_json
 
 def main():
     ap = argparse.ArgumentParser()
@@ -19,6 +20,7 @@ def main():
     ensure_dir(paths["registry_dir"])
     ensure_dir(paths["artifacts_dir"])
     ensure_dir(paths["reports_dir"])
+    metrics_dir = ensure_subdir(paths["reports_dir"], "metrics")
 
     df = load_elliptic(paths)
     X, y = make_xy(df, cfg["features"]["drop"])
@@ -48,13 +50,12 @@ def main():
 
     # save metrics
     table = metrics_table(results)
-    table.to_csv(f'{paths["reports_dir"]}/metrics/{best_name}_comparison.csv', index=False)
-    save_json(results, f'{paths["reports_dir"]}/metrics/all_metrics.json')
+    table.to_csv(f"{metrics_dir}/{best_name}_comparison.csv", index=False)
+    save_json(results, f"{metrics_dir}/all_metrics.json")
 
     print("\n=== Results ===")
     print(table.to_string(index=False))
     print(f"\nSaved best model: {best_name} -> {best_path}")
-
 
 if __name__ == "__main__":
     main()
