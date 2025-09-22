@@ -10,6 +10,7 @@ from .data import load_elliptic, make_xy
 from .pipeline import make_pipelines
 from .utils import ensure_dir, metrics_dict, ensure_subdir, metrics_table, save_json
 
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", required=True)
@@ -56,6 +57,7 @@ def main():
     print("\n=== Results ===")
     print(table.to_string(index=False))
     print(f"\nSaved best model: {best_name} -> {best_path}")
+
 
 if __name__ == "__main__":
     main()
