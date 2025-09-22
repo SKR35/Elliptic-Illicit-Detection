@@ -1,4 +1,7 @@
-import argparse, joblib, pandas as pd
+import argparse
+
+import joblib
+import pandas as pd
 
 
 def main():

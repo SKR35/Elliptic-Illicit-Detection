@@ -1,5 +1,9 @@
-import argparse, joblib, yaml
+import argparse
+
+import joblib
+import yaml
 from sklearn.model_selection import train_test_split
+
 from .data import load_elliptic, make_xy
 from .utils import metrics_dict
 
