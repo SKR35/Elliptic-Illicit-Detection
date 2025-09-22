@@ -18,7 +18,8 @@ This project uses the Elliptic Bitcoin dataset.
 ### Quickstart
 
 ```bash
-python -m venv .venv && source .venv/bin/activate  # (Windows: .venv\Scripts\activate)
+conda create -n elliptic python=3.10 -y
+conda activate elliptic
 pip install -r requirements.txt
 
 # Put the three CSVs into data/raw/
