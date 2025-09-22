@@ -1,5 +1,4 @@
 name: CI
-
 on:
   push:
     branches: [ main, master ]
@@ -21,6 +20,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements-ci.txt
+
+      - name: Add src to PYTHONPATH
+        run: echo "PYTHONPATH=$GITHUB_WORKSPACE" >> $GITHUB_ENV
 
       - name: Run black (check)
         run: |

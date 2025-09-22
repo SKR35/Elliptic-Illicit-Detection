@@ -3,6 +3,7 @@ ruff
 pytest
 pyyaml
 joblib
+pandas
 scikit-learn
 imblearn
 xgboost
